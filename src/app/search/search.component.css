@@ -1,0 +1,8 @@
+.elemt_container {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    margin-top: 2%;
+}

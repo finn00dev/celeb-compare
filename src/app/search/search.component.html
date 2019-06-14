@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <mat-card class="elemt_container">
+            <mat-form-field>
+              <input matInput placeholder="Actor 1" 
+                     [(ngModel)]="actor1_name" 
+                     name="actor1 input" 
+                     (keyup)="onInputType1(actor1_name)"
+                     [matAutocomplete]="auto">
+            </mat-form-field>
+    
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option1 of this.actor1_autocomplete" [value]="option" (click)="setActor1(option1)">{{option1}}</mat-option>
+            </mat-autocomplete>
+    
+      </mat-card>
+    </div>
+
+    <div class="col-md-2">
+      <div class="elemt_container">
+        <button *ngIf="actor1 && actor2" mat-raised-button (click)="searchForActors()">Submit</button>
+        <button *ngIf="!(actor1 && actor2)" mat-raised-button>Submit</button>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <mat-card class="elemt_container">
+            <mat-form-field autocomplete="off">
+              <input matInput placeholder="Actor 2" 
+                              [(ngModel)]="actor2_name" 
+                              name="actor2 input" 
+                              (keyup)="onInputType2(actor2_name)"
+                              [matAutocomplete]="auto2">
+            </mat-form-field>
+      
+            <mat-autocomplete #auto2="matAutocomplete">
+                <mat-option *ngFor="let option2 of this.actor2_autocomplete" [value]="option" (click)="setActor2(option2)">{{option2}}</mat-option>
+            </mat-autocomplete>
+      
+      </mat-card>
+    </div>
+    <div class="col-md-1"></div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <div *ngIf="actor1">
+        <app-actor [actor]="actor1"></app-actor>
+      </div>
+    </div>
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-4">
+      <div *ngIf="actor2">
+        <app-actor [actor]="actor2"></app-actor>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <app-movie-list *ngIf="results" [movies]="results" [actor1]="actor1" [actor2]="actor2"></app-movie-list>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+
+</div>

@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-content>
+    <div class="container_img">
+      <img *ngIf="this.actor.headshot" src={{this.actor.headshot}}>
+      <img *ngIf="!this.actor.headshot" src="https://publicdomainvectors.org/photos/1397379218.png">
+    </div>
+    <br>
+    <h4>{{this.actor.name}}</h4>
+  </mat-card-content>
+</mat-card>

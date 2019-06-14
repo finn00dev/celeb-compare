@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-content *ngIf="movies && movies.length > 0">
+
+    <div *ngFor="let movie of movies" class="container">
+      <app-movie [movie]="movie" [actor1]="actor1" [actor2]="actor2"></app-movie>
+    </div>
+    
+  </mat-card-content>
+
+  <mat-card-content *ngIf="!(movies && movies.length > 0)">
+    <h1 class="mat-h1">No Movies with both of these Actors</h1>
+  </mat-card-content>
+</mat-card>
